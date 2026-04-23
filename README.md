@@ -2,7 +2,15 @@
 
 CodeNinja's private catalog of [Claude Code](https://code.claude.com/docs/en/skills) skills, shipped as a private npm package on GitHub Packages.
 
-One command to browse and install skills into your Claude Code environment:
+One command to browse and install skills into your Claude Code environment.
+
+**Public mirror** (no auth required):
+
+```bash
+npx @iamranawaqas100/dev-claude-skills
+```
+
+**CodeNinja internal** (GitHub Packages, requires PAT):
 
 ```bash
 npx @codeninjainc/dev-claude-skills
@@ -14,8 +22,12 @@ You get an interactive picker — choose a stack (MERN, Next.js, Dev Tooling, Of
 
 - `skills/official/` — mirror of [anthropics/skills](https://github.com/anthropics/skills)
 - `skills/community/` — curated picks from [skills.sh](https://skills.sh) and vercel-labs
-- `skills/patterns/mern/` — in-house MERN pattern skills
-- `skills/patterns/devtools/` — husky + lint-staged + prettier bootstrapper, etc.
+- `skills/patterns/mern/` — MERN pattern skills (react-component, express-route, mongoose-model, jwt-auth, next-api-route)
+- `skills/patterns/nextjs/` — Next.js best practices (server components, data fetching, server actions, middleware, metadata)
+- `skills/patterns/architecture/` — DDD, atomic, clean, repository, event-driven
+- `skills/patterns/backend/` — REST API design, caching, DB migrations, microservices boundaries
+- `skills/patterns/testing/` — unit, integration, e2e (Playwright)
+- `skills/patterns/devtools/` — husky + lint-staged + prettier bootstrapper
 
 ## Install the CLI
 

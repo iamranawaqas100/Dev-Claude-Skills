@@ -1,7 +1,143 @@
 {
-  "generatedAt": "2026-04-23T10:39:34.286Z",
-  "count": 6,
+  "generatedAt": "2026-04-23T17:21:02.045Z",
+  "count": 23,
   "skills": [
+    {
+      "id": "architecture/atomic-design",
+      "name": "atomic-design",
+      "description": "Organize frontend components in Atomic Design layers — atoms, molecules, organisms, templates, pages. Use when the user is setting up a component library, asks about \"component hierarchy\", or wants to split a monolithic component.",
+      "stack": "architecture",
+      "source": "codeninja-internal",
+      "tags": [
+        "architecture",
+        "frontend",
+        "components",
+        "design-system"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/architecture/atomic-design"
+    },
+    {
+      "id": "architecture/clean-architecture",
+      "name": "clean-architecture",
+      "description": "Apply Clean Architecture (Uncle Bob) — entities, use-cases, interface adapters, frameworks/drivers — with the Dependency Rule enforced by imports. Use when the user asks to \"decouple from the framework\", \"make this testable\", or mentions Clean/Hexagonal/Onion architecture.",
+      "stack": "architecture",
+      "source": "codeninja-internal",
+      "tags": [
+        "architecture",
+        "clean",
+        "hexagonal",
+        "dependency-inversion"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/architecture/clean-architecture"
+    },
+    {
+      "id": "architecture/domain-driven-design",
+      "name": "domain-driven-design",
+      "description": "Structure a feature using Domain-Driven Design — entities, value objects, aggregates, repositories, and application services — with a clean boundary between the domain and infrastructure. Use when the user asks to \"model this properly\", designs a complex business feature, or mentions DDD, aggregates, or bounded contexts.",
+      "stack": "architecture",
+      "source": "codeninja-internal",
+      "tags": [
+        "architecture",
+        "ddd",
+        "domain-modeling",
+        "patterns"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/architecture/domain-driven-design"
+    },
+    {
+      "id": "architecture/event-driven-architecture",
+      "name": "event-driven-architecture",
+      "description": "Decouple producers from consumers via domain or integration events — in-process EventEmitter, message broker, or outbox pattern. Use when the user wants async workflows, cross-service communication, or mentions pub/sub, Kafka, RabbitMQ, or event sourcing.",
+      "stack": "architecture",
+      "source": "codeninja-internal",
+      "tags": [
+        "architecture",
+        "events",
+        "pubsub",
+        "async"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/architecture/event-driven-architecture"
+    },
+    {
+      "id": "architecture/repository-pattern",
+      "name": "repository-pattern",
+      "description": "Introduce the Repository pattern — an in-memory-like interface for a collection of domain objects that hides persistence details. Use when the user wants to decouple from the ORM, needs testable data access, or asks \"where should DB queries live?\".",
+      "stack": "architecture",
+      "source": "codeninja-internal",
+      "tags": [
+        "architecture",
+        "repository",
+        "persistence",
+        "patterns"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/architecture/repository-pattern"
+    },
+    {
+      "id": "backend/caching-strategy",
+      "name": "caching-strategy",
+      "description": "Pick and implement the right cache layer — HTTP, CDN, in-process, Redis — with correct TTLs, invalidation, and stampede protection. Use when the user asks to \"make this faster\", \"cache this response\", or mentions Redis/Memcached/ETags.",
+      "stack": "backend",
+      "source": "codeninja-internal",
+      "tags": [
+        "backend",
+        "caching",
+        "redis",
+        "performance"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/backend/caching-strategy"
+    },
+    {
+      "id": "backend/database-migration",
+      "name": "database-migration",
+      "description": "Author a zero-downtime database migration using the expand/contract pattern — additive change, backfill, code cutover, drop old. Use when the user asks to \"add a column\", \"rename a field\", or any schema change on a live production DB.",
+      "stack": "backend",
+      "source": "codeninja-internal",
+      "tags": [
+        "backend",
+        "database",
+        "migration",
+        "postgres",
+        "prisma"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/backend/database-migration"
+    },
+    {
+      "id": "backend/microservices-boundary",
+      "name": "microservices-boundary",
+      "description": "Decide where to draw a service boundary — by bounded context, data ownership, and rate of change — before splitting a monolith or adding a new service. Use when the user asks \"should this be a separate service?\", is considering extracting code, or designing a new feature.",
+      "stack": "backend",
+      "source": "codeninja-internal",
+      "tags": [
+        "architecture",
+        "microservices",
+        "backend",
+        "boundaries"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/backend/microservices-boundary"
+    },
+    {
+      "id": "backend/rest-api-design",
+      "name": "rest-api-design",
+      "description": "Design a RESTful HTTP API — resource-oriented URIs, correct verbs and status codes, consistent error envelope, pagination, and versioning. Use when the user is adding new endpoints, reviewing an API surface, or asks \"what should this return?\".",
+      "stack": "backend",
+      "source": "codeninja-internal",
+      "tags": [
+        "backend",
+        "rest",
+        "api",
+        "http"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/backend/rest-api-design"
+    },
     {
       "id": "devtools/husky-lint-staged-prettier",
       "name": "husky-lint-staged-prettier",
@@ -96,6 +232,126 @@
       ],
       "version": "1.0.0",
       "path": "skills/patterns/mern/react-component"
+    },
+    {
+      "id": "nextjs/next-data-fetching",
+      "name": "next-data-fetching",
+      "description": "Choose and implement the right Next.js App Router data-fetching strategy — static, ISR, dynamic, streaming, or client-side — based on freshness and latency requirements. Use when the user asks \"how should I fetch this data\" or is picking between server/client data flows.",
+      "stack": "nextjs",
+      "source": "codeninja-internal",
+      "tags": [
+        "nextjs",
+        "data-fetching",
+        "caching",
+        "isr"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/nextjs/next-data-fetching"
+    },
+    {
+      "id": "nextjs/next-metadata",
+      "name": "next-metadata",
+      "description": "Add static or dynamic `generateMetadata` to a Next.js App Router page for SEO, Open Graph, Twitter cards, and canonical URLs. Use when the user asks about SEO, social previews, or fixing a page's title/description.",
+      "stack": "nextjs",
+      "source": "codeninja-internal",
+      "tags": [
+        "nextjs",
+        "seo",
+        "metadata",
+        "og"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/nextjs/next-metadata"
+    },
+    {
+      "id": "nextjs/next-middleware",
+      "name": "next-middleware",
+      "description": "Author Next.js `middleware.ts` for auth gating, locale routing, A/B experiments, or header rewrites — with a tight matcher so it doesn't run on every request. Use when the user asks to \"protect routes\", \"redirect based on cookie\", or \"rewrite URLs\".",
+      "stack": "nextjs",
+      "source": "codeninja-internal",
+      "tags": [
+        "nextjs",
+        "middleware",
+        "auth",
+        "edge"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/nextjs/next-middleware"
+    },
+    {
+      "id": "nextjs/next-server-action",
+      "name": "next-server-action",
+      "description": "Implement a Next.js Server Action for form submission or mutation — typed input with Zod, error surfacing, revalidation, and redirect. Use when the user asks to \"add a form\", \"handle submit on the server\", or replaces an API route with a Server Action.",
+      "stack": "nextjs",
+      "source": "codeninja-internal",
+      "tags": [
+        "nextjs",
+        "server-action",
+        "mutation",
+        "forms"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/nextjs/next-server-action"
+    },
+    {
+      "id": "nextjs/next-server-component",
+      "name": "next-server-component",
+      "description": "Build a Next.js App Router Server Component that fetches data at the server, streams to the client, and avoids accidental \"use client\" boundaries. Use when the user asks to add a page/route under `app/`, or converts a client component to a server one.",
+      "stack": "nextjs",
+      "source": "codeninja-internal",
+      "tags": [
+        "nextjs",
+        "app-router",
+        "rsc",
+        "server-component"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/nextjs/next-server-component"
+    },
+    {
+      "id": "testing/e2e-playwright",
+      "name": "e2e-playwright",
+      "description": "Author a Playwright end-to-end test — user-centric, stable selectors, network mocking only at the edges, retried assertions. Use when the user asks to \"test the user flow\", \"add E2E\", or is debugging a flaky UI test.",
+      "stack": "testing",
+      "source": "codeninja-internal",
+      "tags": [
+        "testing",
+        "e2e",
+        "playwright",
+        "browser"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/testing/e2e-playwright"
+    },
+    {
+      "id": "testing/integration-test",
+      "name": "integration-test",
+      "description": "Write an integration test that exercises multiple layers together — HTTP handler + service + real database (via testcontainers or a transaction per test). Use when the user asks to \"test the API\", \"verify the DB writes\", or needs confidence across a boundary.",
+      "stack": "testing",
+      "source": "codeninja-internal",
+      "tags": [
+        "testing",
+        "integration",
+        "supertest",
+        "testcontainers"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/testing/integration-test"
+    },
+    {
+      "id": "testing/unit-test",
+      "name": "unit-test",
+      "description": "Write fast, isolated unit tests for a pure function, class, or component using Jest/Vitest with Arrange-Act-Assert structure. Use when the user asks to \"add unit tests\", \"cover this function\", or mentions Jest/Vitest.",
+      "stack": "testing",
+      "source": "codeninja-internal",
+      "tags": [
+        "testing",
+        "unit",
+        "jest",
+        "vitest"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/testing/unit-test"
     }
   ]
 }

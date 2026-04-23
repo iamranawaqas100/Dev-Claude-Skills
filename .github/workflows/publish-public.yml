@@ -1,0 +1,45 @@
+name: Publish (public npm)
+
+# Runs ONLY on the personal fork (iamranawaqas100/Dev-Claude-Skills).
+# On the CodeNinjaInc repo this workflow is a no-op.
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  publish-public:
+    if: github.repository == 'iamranawaqas100/Dev-Claude-Skills' && !contains(github.event.head_commit.message, '[skip ci]')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install
+        run: npm ci
+
+      - name: Rebuild manifest
+        run: npm run manifest
+
+      - name: Rewrite package.json for public npm
+        run: |
+          node -e "
+            const fs = require('fs');
+            const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+            pkg.name = '@iamranawaqas100/dev-claude-skills';
+            pkg.publishConfig = { registry: 'https://registry.npmjs.org', access: 'public' };
+            fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
+          "
+
+      - name: Publish to public npmjs.com
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
