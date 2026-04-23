@@ -1,6 +1,6 @@
 {
   "name": "@codeninjainc/dev-claude-skills",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CodeNinja's private catalog of Claude Code skills with an interactive CLI installer.",
   "bin": {
     "ninja-skills": "cli/bin/ninja-skills.js"
@@ -29,7 +29,12 @@
     "type": "git",
     "url": "git+https://github.com/CodeNinjaInc/Dev-Claude-Skills.git"
   },
-  "keywords": ["claude", "claude-code", "skills", "codeninja"],
+  "keywords": [
+    "claude",
+    "claude-code",
+    "skills",
+    "codeninja"
+  ],
   "license": "UNLICENSED",
   "dependencies": {
     "chalk": "^4.1.2",
@@ -46,8 +51,12 @@
     "prettier": "^3.2.0"
   },
   "lint-staged": {
-    "*.{js,json,md}": ["prettier --write"],
-    "{cli,scripts,sources}/**/*.js": ["eslint --fix"]
+    "*.{js,json,md}": [
+      "prettier --write"
+    ],
+    "{cli,scripts,sources}/**/*.js": [
+      "eslint --fix"
+    ]
   },
   "engines": {
     "node": ">=18"
