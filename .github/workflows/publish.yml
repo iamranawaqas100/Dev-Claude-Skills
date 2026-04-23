@@ -1,0 +1,79 @@
+name: Publish
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  publish:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@codeninjainc'
+
+      - name: Install
+        run: npm ci
+
+      - name: Snapshot old manifest
+        run: cp registry/manifest.json /tmp/old-manifest.json || echo '{"skills":[]}' > /tmp/old-manifest.json
+
+      - name: Rebuild manifest
+        run: npm run manifest
+
+      - name: Bump version (patch)
+        id: bump
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          npm version patch -m "chore(release): %s [skip ci]"
+          echo "new_version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+
+      - name: Push version bump + manifest
+        run: |
+          git add registry/manifest.json package.json package-lock.json || true
+          git commit --amend --no-edit || echo "nothing extra to amend"
+          git push origin main --follow-tags
+
+      - name: Generate release notes
+        id: notes
+        run: |
+          node scripts/release-notes.js /tmp/old-manifest.json registry/manifest.json > /tmp/notes.md
+          echo 'NOTES<<EOF' >> "$GITHUB_OUTPUT"
+          cat /tmp/notes.md >> "$GITHUB_OUTPUT"
+          echo 'EOF' >> "$GITHUB_OUTPUT"
+
+      - name: Publish to GitHub Packages
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.bump.outputs.new_version }}
+          name: v${{ steps.bump.outputs.new_version }}
+          body: ${{ steps.notes.outputs.NOTES }}
+
+      - name: Notify Slack (optional)
+        if: env.SLACK_WEBHOOK_URL != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          VERSION: ${{ steps.bump.outputs.new_version }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+            --data "{\"text\":\"📦 @codeninjainc/dev-claude-skills v${VERSION} published.\nRun: \`npx @codeninjainc/dev-claude-skills\`\"}" \
+            "$SLACK_WEBHOOK_URL"

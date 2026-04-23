@@ -1,0 +1,101 @@
+{
+  "generatedAt": "2026-04-23T10:20:21.165Z",
+  "count": 6,
+  "skills": [
+    {
+      "id": "devtools/husky-lint-staged-prettier",
+      "name": "husky-lint-staged-prettier",
+      "description": "Set up husky + lint-staged + prettier (and optionally eslint) in the current project so staged files are auto-formatted and linted on every commit. Use when the user asks to \"set up pre-commit hooks\", \"add husky\", \"enforce formatting on commit\", or onboard a fresh project.",
+      "stack": "devtools",
+      "source": "codeninja-internal",
+      "tags": [
+        "devtools",
+        "husky",
+        "lint-staged",
+        "prettier",
+        "eslint",
+        "git-hooks"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/devtools/husky-lint-staged-prettier"
+    },
+    {
+      "id": "mern/express-route",
+      "name": "express-route",
+      "description": "Scaffold an Express route with input validation, async handler, and error forwarding. Use when the user asks to \"add an endpoint\", \"create a route\", or define a new REST resource in an Express/Node backend.",
+      "stack": "mern",
+      "source": "codeninja-internal",
+      "tags": [
+        "express",
+        "backend",
+        "api",
+        "node",
+        "mern"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/mern/express-route"
+    },
+    {
+      "id": "mern/jwt-auth",
+      "name": "jwt-auth",
+      "description": "Wire up JWT-based auth for an Express app — login, refresh, and an auth middleware that verifies bearer tokens and attaches req.user. Use when the user asks to \"add auth\", \"implement JWT login\", or secure existing routes.",
+      "stack": "mern",
+      "source": "codeninja-internal",
+      "tags": [
+        "jwt",
+        "auth",
+        "express",
+        "security",
+        "mern"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/mern/jwt-auth"
+    },
+    {
+      "id": "mern/mongoose-model",
+      "name": "mongoose-model",
+      "description": "Create a Mongoose schema and model with timestamps, indexes, and sensible defaults. Use when the user asks to \"add a model\", \"create a Mongoose schema\", or introduce a new collection to a MongoDB/Mongoose app.",
+      "stack": "mern",
+      "source": "codeninja-internal",
+      "tags": [
+        "mongoose",
+        "mongodb",
+        "model",
+        "schema",
+        "mern"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/mern/mongoose-model"
+    },
+    {
+      "id": "mern/next-api-route",
+      "name": "next-api-route",
+      "description": "Create a Next.js App Router API route (route.ts) or legacy pages/api handler, with input parsing, error handling, and correct status codes. Use when the user asks to \"add an API route\" in a Next.js project.",
+      "stack": "mern",
+      "source": "codeninja-internal",
+      "tags": [
+        "next",
+        "api",
+        "app-router",
+        "backend"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/mern/next-api-route"
+    },
+    {
+      "id": "mern/react-component",
+      "name": "react-component",
+      "description": "Scaffold a React functional component with hooks, PropTypes (or TS props), and a colocated test file. Use when the user asks to \"create a component\", \"add a new React component\", or drops a component spec.",
+      "stack": "mern",
+      "source": "codeninja-internal",
+      "tags": [
+        "react",
+        "frontend",
+        "component",
+        "mern"
+      ],
+      "version": "1.0.0",
+      "path": "skills/patterns/mern/react-component"
+    }
+  ]
+}

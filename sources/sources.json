@@ -1,0 +1,40 @@
+{
+  "$schema": "./sources.schema.json",
+  "sources": [
+    {
+      "id": "anthropic-official",
+      "adapter": "github-repo",
+      "repo": "anthropics/skills",
+      "branch": "main",
+      "subdir": ".",
+      "target": "skills/official",
+      "enabled": true,
+      "notes": "Official Anthropic skills — docx, pdf, pptx, xlsx, skill-creator, etc."
+    },
+    {
+      "id": "vercel-labs",
+      "adapter": "github-repo",
+      "repo": "vercel-labs/skills",
+      "branch": "main",
+      "subdir": ".",
+      "target": "skills/community/vercel-labs",
+      "enabled": false,
+      "notes": "Enable when verified. Large community collection from Vercel Labs."
+    },
+    {
+      "id": "skills-sh-top",
+      "adapter": "skills-sh",
+      "filter": { "minRank": 4.5, "limit": 10 },
+      "target": "skills/community/skills-sh",
+      "enabled": false,
+      "notes": "Curated top skills from skills.sh. Enable after reviewing adapter."
+    },
+    {
+      "id": "codeninja-internal",
+      "adapter": "local",
+      "target": "skills/patterns",
+      "enabled": true,
+      "notes": "In-house patterns authored directly in this repo."
+    }
+  ]
+}

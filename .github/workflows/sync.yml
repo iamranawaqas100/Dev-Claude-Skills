@@ -1,0 +1,43 @@
+name: Sync upstream sources
+
+on:
+  schedule:
+    - cron: '0 9 * * 1' # Mondays 09:00 UTC
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install
+        run: npm ci
+
+      - name: Run source sync
+        run: npm run sync
+
+      - name: Rebuild manifest
+        run: npm run manifest
+
+      - name: Open PR if anything changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: chore/sync-upstream-${{ github.run_id }}
+          title: 'chore(sync): pull upstream skill updates'
+          commit-message: 'chore(sync): pull upstream skill updates'
+          body: |
+            Automated weekly sync of upstream skill sources.
+
+            Review the diff carefully — any removals may indicate upstream breaking changes.
+          labels: sync,automated

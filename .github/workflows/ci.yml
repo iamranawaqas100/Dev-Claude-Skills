@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate skill frontmatter
+        run: npm run validate
+
+      - name: Check manifest is up-to-date
+        run: npm run manifest:check
+
+      - name: Lint
+        run: npm run lint
+        continue-on-error: true  # lint failures warn but don't block until codebase stabilizes

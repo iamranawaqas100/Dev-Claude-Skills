@@ -1,0 +1,8 @@
+# Default owners — every PR requests review from the AI adoption team.
+# Update this list once GitHub team names are finalised.
+*                                   @CodeNinjaInc/ai-adoption
+
+# CLI + release pipeline need tighter review.
+/cli/                               @CodeNinjaInc/ai-adoption-cli
+/.github/workflows/                 @CodeNinjaInc/ai-adoption-cli
+/scripts/                           @CodeNinjaInc/ai-adoption-cli

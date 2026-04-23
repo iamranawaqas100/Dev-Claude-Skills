@@ -1,0 +1,55 @@
+{
+  "name": "@codeninjainc/dev-claude-skills",
+  "version": "0.1.0",
+  "description": "CodeNinja's private catalog of Claude Code skills with an interactive CLI installer.",
+  "bin": {
+    "ninja-skills": "cli/bin/ninja-skills.js"
+  },
+  "main": "cli/src/index.js",
+  "files": [
+    "cli",
+    "skills",
+    "registry/manifest.json",
+    "README.md"
+  ],
+  "scripts": {
+    "validate": "node scripts/validate-skills.js",
+    "manifest": "node scripts/build-manifest.js",
+    "manifest:check": "node scripts/build-manifest.js --check",
+    "sync": "node scripts/sync-sources.js",
+    "lint": "eslint cli scripts sources",
+    "format": "prettier --write .",
+    "prepare": "husky"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeNinjaInc/Dev-Claude-Skills.git"
+  },
+  "keywords": ["claude", "claude-code", "skills", "codeninja"],
+  "license": "UNLICENSED",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^12.0.0",
+    "fs-extra": "^11.2.0",
+    "fuse.js": "^6.6.2",
+    "gray-matter": "^4.0.3",
+    "inquirer": "^8.2.6"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0",
+    "prettier": "^3.2.0"
+  },
+  "lint-staged": {
+    "*.{js,json,md}": ["prettier --write"],
+    "{cli,scripts,sources}/**/*.js": ["eslint --fix"]
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
