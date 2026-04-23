@@ -1,6 +1,6 @@
 {
   "name": "@codeninjainc/dev-claude-skills",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "CodeNinja's private catalog of Claude Code skills with an interactive CLI installer.",
   "bin": {
     "ninja-skills": "cli/bin/ninja-skills.js"
