@@ -7,7 +7,7 @@ One command to browse and install skills into your Claude Code environment.
 **Public mirror** (no auth required):
 
 ```bash
-npx @iamranawaqas100/dev-claude-skills
+npx @waqasrana04/dev-claude-skills
 ```
 
 **CodeNinja internal** (GitHub Packages, requires PAT):
